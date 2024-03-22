@@ -108,6 +108,31 @@
     font-weight: bold; /* 加粗样式 */
     color: black; /* 黑色字体 */
     margin-bottom: 20px; /* 与下面内容的间距 */
+     @media screen and (max-width: 1024px) {
+            /* 对于iPad和较小的设备，sidebar改为可滚动而非固定 */
+            .sidebar {
+                position: relative;
+                height: auto;
+                width: 100%;
+                padding-top: 0;
+            }
+            /* 侧边栏的链接调整为块状元素，以适应全宽 */
+            .sidebar a {
+                display: block;
+            }
+            /* 主要内容区域不再有固定的左边距 */
+            .main {
+                margin-left: 0;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            /* 对于手机和更小的设备 */
+            .sidebar {
+                width: auto;
+            }
+        }
+
     </style>
 </head>
 <body>
