@@ -56,6 +56,7 @@
     </style>
 </head>
 <body>
+    <!-- 头部内容 -->
 
 <div class="sidebar">
   <button type="button" class="collapsible">内容玩法向</button>
@@ -77,68 +78,37 @@
     <a href="#dontClick">千万别点开！！</a>
   </div>
 </div>
-
-<div class="main">
-  <!-- 在此处添加主体内容 -->
-</div>
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    var coll = document.getElementsByClassName("collapsible");
-    for (var i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-            var currentlyActiveCollapsible = document.querySelector(".collapsible.active");
-            if(currentlyActiveCollapsible && currentlyActiveCollapsible !== this) {
-                currentlyActiveCollapsible.classList.toggle("active");
-                currentlyActiveCollapsible.nextElementSibling.style.display = "none";
-            }
-            this.classList.toggle("active");
-            var content = this.nextElementSibling;
-            if (content.style.display === "block") {
-                content.style.display = "none";
-            } else {
-                content.style.display = "block";
-            }
-        });
-    }
-});
-</script>
-
-</body>
-</html>
-
+<!-- 侧边栏内容 -->
+    
 <div class="main">
     <!-- 探索活动《逐梦客时讯》2.0版本 （常规） -->
     <h2 id="exploreActivity">探索活动「《逐梦客时讯》」2.0版本 （常规）</h2>
     <div class="activity-section">
-    <img src="images/600px-「《逐梦客时讯》」.png.jpeg" alt="《逐梦客时讯》活动图片">
+        <img src="images/600px-「《逐梦客时讯》」.png.jpeg" alt="《逐梦客时讯》活动图片">
     </div>
     <div class="activity-section-header">活动时间</div>
     <p>2.0版本更新后~2024/03/25 03:59</p>
+    <div class="activity-section">
+        <div class="activity-section-header">参与条件</div>
+        <p>完成开拓任务「仙舟『罗浮』」-「安灵布奠，天清路远」</p>
     </div>
     <div class="activity-section">
-    <div class="activity-section-header">参与条件</div>
-    <p>完成开拓任务「仙舟『罗浮』」-「安灵布奠，天清路远」</p>
-    </div>
-    <div class="activity-section">
-    <div class="activity-section-header">活动说明</div>
-    <ul>
-    <li>- 活动开放期间，开拓者可在页面中查看所有时讯内容。</li>
-    <li>- 在匹诺康尼完成指定时讯后，即可于相应页面中领取奖励。</li>
-    <li>- 活动开放期间，每条时讯完成后，其奖励仅可领取一次。</li>
-    </ul>
-    </div>
+        <div class="activity-section-header">活动说明</div>
+        <ul>
+            <li>活动开放期间，开拓者可在页面中查看所有时讯内容。</li>
+            <li>在匹诺康尼完成指定时讯后，即可于相应页面中领取奖励。</li>
+            <li>活动开放期间，每条时讯完成后，其奖励仅可领取一次。</li>
+        </ul>
+        
     <!-- 哈努兄弟越狱记 -->
     <h2 id="hanuBrothers">版本/常驻活动 「哈努兄弟越狱记」（常规）</h2>
     <p>这里是关于哈努兄弟越狱记活动的详细介绍。</p>
     <!-- 其他活动细节... -->
-
+    
     <!-- 惊梦电视台 -->
     <h2 id="dreamTv">挑战活动「惊梦电视台」（常规）</h2>
     <p>这里是关于惊梦电视台活动的详细介绍。</p>
-    <!-- 其他活动细节... -->
-
-    <!-- 匹诺康尼美食庆典 -->
+    <!-- 其他活动细节... --><!-- 匹诺康尼美食庆典 -->
     <h2 id="foodFestival">剧情活动「匹诺康尼美食庆典」（常规）</h2>
     <p>这里是关于匹诺康尼美食庆典的详细介绍。</p>
     <!-- 其他活动细节... -->
@@ -168,4 +138,31 @@ document.addEventListener("DOMContentLoaded", function() {
     <p>这里是关于千万别点开！！活动的详细介绍。</p>
     <!-- 其他活动细节... -->
 </div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var coll = document.getElementsByClassName("collapsible");
+    for (var i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            var currentlyActiveCollapsible = document.querySelector(".collapsible.active");
+            if(currentlyActiveCollapsible && currentlyActiveCollapsible !== this) {
+                currentlyActiveCollapsible.classList.toggle("active");
+                currentlyActiveCollapsible.nextElementSibling.style.display = "none";
+            }
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    }
+});
+</script>
+    <!-- javascript内容，保持不变 -->
+
+</body>
+</html>
 
