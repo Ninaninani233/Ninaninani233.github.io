@@ -9,7 +9,9 @@
             font-family: Arial, sans-serif; 
             margin: 0; 
             padding-top: 60px; /* Space for the fixed header */
-            padding-left: 250px; /* Space for the fixed sidebar on desktop */
+            display: flex;
+            flex-direction: row;
+            background: #f4f4f4;
         }
         header { 
             background-color: #333; 
@@ -25,58 +27,52 @@
         .sidebar { 
             background-color: #333; 
             color: white; 
+            width: 250px; 
             position: fixed; 
             top: 60px; /* Below the header */
             bottom: 0;
             left: 0;
-            width: 250px; 
-            overflow-y: auto; 
+            overflow-y: auto;
             z-index: 1;
+            display: block; /* Always show sidebar on desktop */
+            transition: transform 0.3s ease;
         }
         .sidebar a { 
             padding: 10px 15px; 
             text-decoration: none; 
+            font-size: 16px; 
             display: block; 
-            text-align: left; 
+            transition: 0.3s; 
         }
         .sidebar a:hover { 
             background-color: #555; 
         }
         .main { 
-            margin-top: 0;
-            padding: 1rem;
-            flex-grow: 1;
+            flex-grow: 1; 
+            padding: 20px; 
+            margin-left: 250px; /* Same width as sidebar */
         }
         img { 
             max-width: 100%; 
             height: auto;
         }
-
+        
         /* Responsive adjustments */
         @media screen and (max-width: 768px) {
-            body { 
-                padding-left: 0; /* Sidebar goes full width on mobile */
-            }
             .sidebar { 
-                width: 100%; /* Full width */
-                padding: 0; 
+                transform: translateX(-250px); /* Hide sidebar by default on mobile */
             }
-            .sidebar a { 
-                text-align: center; 
-                padding: 10px 0; /* Larger tap area */
+            .sidebar.active { 
+                transform: translateX(0); /* Show sidebar when active */
             }
             .main { 
-                padding: 1rem;
+                margin-left: 0; /* Main content takes full width on mobile */
             }
-        }
-
-        /* Media query for landscape phones */
-        @media screen and (max-width: 768px) and (orientation: landscape) {
             body {
-                padding-top: 60px; /* Header height */
+                padding-top: 0; /* Header becomes static */
             }
-            .sidebar {
-                padding-top: 60px; /* Header height */
+            header { 
+                position: static;
             }
         }
     </style>
@@ -84,8 +80,9 @@
 <body>
     <header>
         <h1>游戏外活动</h1>
+        <div onclick="toggleSidebar()" style="cursor:pointer;">☰</div> <!-- Menu toggle for mobile -->
     </header>
-    <div class="sidebar">
+    <div class="sidebar" id="mySidebar">
         <a href="#activity1">群星的寓言 1.6</a>
         <a href="#activity2">不眠之夜 White Night 1.6</a>
         <a href="#activity3">盛会邀约 2.0</a>
@@ -184,7 +181,17 @@
     </div>
     
     </div>
-
+    
+ <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById('mySidebar');
+            if (sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+            } else {
+                sidebar.classList.add('active');
+            }
+        }
+    </script>
 
 
 </body>
