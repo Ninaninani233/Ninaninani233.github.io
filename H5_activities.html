@@ -108,7 +108,7 @@
     font-weight: bold; /* 加粗样式 */
     color: black; /* 黑色字体 */
     margin-bottom: 20px; /* 与下面内容的间距 */
-     @media screen and (max-width: 1024px) {
+ @media screen and (max-width: 1024px) {
             /* 对于iPad和较小的设备，sidebar改为可滚动而非固定 */
             .sidebar {
                 position: relative;
@@ -126,13 +126,30 @@
             }
         }
 
-        @media screen and (max-width: 768px) {
+ @media screen and (max-width: 768px) {
             /* 对于手机和更小的设备 */
             .sidebar {
                 width: auto;
             }
         }
-
+ @media screen and (max-width: 1024px) {
+            /* 对于iPad和较小的设备 */
+            .sidebar {
+                position: static; /* 移动设备上不固定侧边栏 */
+                width: 100%;
+                height: auto;
+            }
+            .main {
+                margin-left: 0; /* 移除main区域的左边距 */
+                padding: 0 20px; /* 添加水平内边距 */
+            }
+        }
+        
+ @media screen and (max-width: 768px) {
+            /* 对于手机和更小的设备 */
+            .sidebar a { padding: 10px 15px; } /* 调整侧边栏链接的内边距 */
+            .sidebar { padding-top: 10px; } /* 调整侧边栏顶部内边距 */
+        }
     </style>
 </head>
 <body>
@@ -144,12 +161,12 @@
         <a href="#activity1">群星的寓言 1.6</a>
         <a href="#activity2">不眠之夜 White Night 1.6</a>
         <a href="#activity3">盛会邀约 2.0</a>
-</div>
+     </div>
 <!-- 侧边栏内容 -->    
     
 <div class="main">
         <!-- 网页活动预热1-「群星的寓言」1.6版本 -->
-        <h2 id="activity" id="activity1">网页活动预热1-「群星的寓言」1.6版本</h2>
+        <h2 id="activity1">网页活动预热1-「群星的寓言」1.6版本</h2>
         <div class="activity-section">
             <img src="images/22bczgcl0bxdldalmb9iqs9i87jsotq.png" alt="群星的预言活动图片">
          </div>
