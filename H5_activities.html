@@ -22,16 +22,19 @@
         .sidebar a { color: white; padding: 10px; text-decoration: none; display: block; font-size: 16px; }
         .sidebar a:hover { background-color: #555; }
         .main { margin-left: 250px; padding: 20px; overflow-x: auto; }
-        .activity-section-header { font-weight: bold; color: #333; } /* Black color for subheaders */
-        .activity-header { color: white; font-weight: bold; margin-bottom: 20px; }
+        .activity-section-header { font-weight: bold; } /* Black color for subheaders */
+        .activity-header { margin-bottom: 20px; font-weight: bold; }
         .activity-section { margin-bottom: 20px; }
         table { width: 100%; border-collapse: collapse; }
         th, td { border: 1px solid #000; padding: 8px; text-align: left; }
         th { background-color: #555; color: white; }
         tr:nth-child(even) { background-color: #ddd; }
-        /* Added styles for white text in dark background for certain sections */
-        .dark-section { background-color: #333; color: white; padding: 10px; }
-        .dark-section p, .dark-section ul { color: white; }
+        /* Added styles for white text in header */
+        header, .header { color: white; }
+        /* Ensure all text is black for consistency */
+        body, .activity-section-header, .activity-header, p, ul, li, a { color: black; }
+        /* Specific class for white text */
+        .white-text { color: white; }
     </style>
 </head>
 <body>
