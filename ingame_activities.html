@@ -3,71 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>游戏外活动</title>
+    <title>游戏内活动</title>
     <style>
-        /* 在这里添加其他样式 */
-        .collapsible {
-            background-color: #777;
-            color: white;
-            cursor: pointer;
-            padding: 18px;
-            width: 100%;
-            text-align: left;
-            outline: none;
-            font-size: 18px;
+        /* 其他样式 */
+        .sidebar {
+            height: 100vh;
+            width: 250px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #f1f1f1;
+            overflow-x: hidden;
+            padding-top: 20px;
         }
-
-        .active, .collapsible:hover {
+        .sidebar a {
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+        }
+        .sidebar a:hover {
+            color: #f1f1f1;
             background-color: #555;
         }
-
+        .main {
+            margin-left: 260px; /* Same as the width of the sidebar */
+            padding: 0px 10px;
+        }
+        /* Style the collapsible content. Note: hidden by default */
         .content {
             padding: 0 18px;
-            max-height: 0;
             overflow: hidden;
-            transition: max-height 0.2s ease-out;
-            background-color: #f1f1f1;
+            display: none;
         }
     </style>
 </head>
 <body>
-    <!-- 在这里添加侧边栏和主体内容 -->
 
-    <!-- 大目录 -->
-    <button type="button" class="collapsible">内容玩法向</button>
-    <div class="content">
-        <p>探索活动「《逐梦客时讯》」2.0版本 （常规）</p>
-        <p>版本/常驻活动 「哈努兄弟越狱记」（常规）</p>
-        <!-- 其他活动链接 -->
-    </div>
+<div class="sidebar">
+  <a href="#activity1">内容玩法向</a>
+  <div class="content">
+    <a href="#exploreActivity">《逐梦客时讯》</a>
+    <!-- 其他链接 -->
+  </div>
+  <a href="#activity2">培养资源向</a>
+  <div class="content">
+    <a href="#resourceActivity">位面分裂</a>
+    <!-- 其他链接 -->
+  </div>
+  <a href="#activity3">签到福利</a>
+  <div class="content">
+    <a href="#signInActivity">逴星之礼</a>
+    <!-- 其他链接 -->
+  </div>
+</div>
 
-    <button type="button" class="collapsible">培养资源向</button>
-    <div class="content">
-        <p>「位面分裂」-第七期</p>
-        <p>「花藏繁生」-第三期</p>
-        <!-- 其他活动链接 -->
-    </div>
+<div class="main">
+  <!-- Content -->
+  <h2 id="exploreActivity">探索活动「《逐梦客时讯》」2.0版本 （常规）</h2>
+  <!-- 对应内容 -->
 
-    <button type="button" class="collapsible">签到福利</button>
-    <div class="content">
-        <p>「逴星之礼」</p>
-        <p>「巡星之礼」</p>
-        <!-- 其他活动链接 -->
-    </div>
+  <h2 id="resourceActivity">资源活动「位面分裂」第七期（特殊）</h2>
+  <!-- 对应内容 -->
 
-    <script>
-        var coll = document.getElementsByClassName("collapsible");
-        for (var i = 0; i < coll.length; i++) {
-            coll[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var content = this.nextElementSibling;
-                if (content.style.maxHeight){
-                    content.style.maxHeight = null;
-                } else {
-                    content.style.maxHeight = content.scrollHeight + "px";
-                } 
-            });
-        }
-    </script>
+  <h2 id="signInActivity">签到活动「逴星之礼」</h2>
+  <!-- 对应内容 -->
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var coll = document.getElementsByClassName('sidebar')[0].getElementsByTagName('a');
+    for (var i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    }
+});
+</script>
+
 </body>
 </html>
