@@ -8,7 +8,8 @@
         body { 
             font-family: Arial, sans-serif; 
             margin: 0; 
-            padding-top: 60px; /* Space for header */
+            padding-top: 60px; /* Space for the fixed header */
+            padding-left: 250px; /* Space for the fixed sidebar on desktop */
         }
         header { 
             background-color: #333; 
@@ -23,65 +24,59 @@
         }
         .sidebar { 
             background-color: #333; 
-            width: 250px; 
+            color: white; 
             position: fixed; 
-            top: 60px; 
-            bottom: 0; 
-            left: 0; 
+            top: 60px; /* Below the header */
+            bottom: 0;
+            left: 0;
+            width: 250px; 
             overflow-y: auto; 
-            z-index: 1; 
+            z-index: 1;
         }
         .sidebar a { 
-            color: white; 
             padding: 10px 15px; 
             text-decoration: none; 
             display: block; 
+            text-align: left; 
         }
         .sidebar a:hover { 
             background-color: #555; 
         }
         .main { 
-            margin-left: 250px; 
-            padding: 20px;
+            margin-top: 0;
+            padding: 1rem;
+            flex-grow: 1;
         }
         img { 
             max-width: 100%; 
             height: auto;
         }
 
+        /* Responsive adjustments */
         @media screen and (max-width: 768px) {
             body { 
-                padding-top: 0;
-            }
-            header { 
-                position: static;
+                padding-left: 0; /* Sidebar goes full width on mobile */
             }
             .sidebar { 
-                position: static; 
-                width: 100%; 
-                display: block; 
-                padding: 20px 0;
+                width: 100%; /* Full width */
+                padding: 0; 
             }
             .sidebar a { 
                 text-align: center; 
-                padding: 10px;
+                padding: 10px 0; /* Larger tap area */
             }
             .main { 
-                margin: 0;
-                padding: 10px;
+                padding: 1rem;
             }
         }
 
-        @media screen and (max-height: 500px) and (orientation: landscape) {
-            .sidebar {
-                position: fixed;
-                width: 250px;
-                top: 0;
-                height: 100%;
-                display: block;
+        /* Media query for landscape phones */
+        @media screen and (max-width: 768px) and (orientation: landscape) {
+            body {
+                padding-top: 60px; /* Header height */
             }
-            .main {
-                margin-left: 250px;
+            .sidebar {
+                padding-top: 60px; /* Header height */
             }
         }
     </style>
@@ -95,6 +90,7 @@
         <a href="#activity2">不眠之夜 White Night 1.6</a>
         <a href="#activity3">盛会邀约 2.0</a>
     </div>
+
     
 <div class="main">
         <!-- 网页活动预热1-「群星的寓言」1.6版本 -->
