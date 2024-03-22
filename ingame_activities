@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>游戏外活动</title>
+    <style>
+        /* 在这里添加其他样式 */
+        .collapsible {
+            background-color: #777;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            text-align: left;
+            outline: none;
+            font-size: 18px;
+        }
+
+        .active, .collapsible:hover {
+            background-color: #555;
+        }
+
+        .content {
+            padding: 0 18px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <!-- 在这里添加侧边栏和主体内容 -->
+
+    <!-- 大目录 -->
+    <button type="button" class="collapsible">内容玩法向</button>
+    <div class="content">
+        <p>探索活动「《逐梦客时讯》」2.0版本 （常规）</p>
+        <p>版本/常驻活动 「哈努兄弟越狱记」（常规）</p>
+        <!-- 其他活动链接 -->
+    </div>
+
+    <button type="button" class="collapsible">培养资源向</button>
+    <div class="content">
+        <p>「位面分裂」-第七期</p>
+        <p>「花藏繁生」-第三期</p>
+        <!-- 其他活动链接 -->
+    </div>
+
+    <button type="button" class="collapsible">签到福利</button>
+    <div class="content">
+        <p>「逴星之礼」</p>
+        <p>「巡星之礼」</p>
+        <!-- 其他活动链接 -->
+    </div>
+
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        for (var i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight){
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                } 
+            });
+        }
+    </script>
+</body>
+</html>
