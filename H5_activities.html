@@ -8,71 +8,75 @@
         body { 
             font-family: Arial, sans-serif; 
             margin: 0; 
-            padding-top: 60px; /* Space for the fixed header */
-            display: flex;
-            flex-direction: row;
-            background: #f4f4f4;
+            padding: 0; 
+            display: flex; 
+            flex-direction: column;
         }
         header { 
             background-color: #333; 
-            color: white; 
             padding: 20px; 
             text-align: center; 
+            color: white; 
+            width: 100%; 
             position: fixed; 
             top: 0; 
-            left: 0; 
-            width: 100%; 
             z-index: 2;
         }
         .sidebar { 
             background-color: #333; 
-            color: white; 
             width: 250px; 
             position: fixed; 
-            top: 60px; /* Below the header */
-            bottom: 0;
-            left: 0;
-            overflow-y: auto;
+            top: 60px; /* Adjusted to not be under the header */
+            bottom: 0; 
+            left: 0; 
+            overflow-x: hidden; 
+            padding-top: 20px; 
+            transition: 0.5s; 
             z-index: 1;
-            display: block; /* Always show sidebar on desktop */
-            transition: transform 0.3s ease;
         }
         .sidebar a { 
+            color: white; 
             padding: 10px 15px; 
             text-decoration: none; 
             font-size: 16px; 
             display: block; 
-            transition: 0.3s; 
+            text-align: center; /* Center align links */
         }
         .sidebar a:hover { 
             background-color: #555; 
         }
         .main { 
-            flex-grow: 1; 
+            margin-left: 250px; 
             padding: 20px; 
-            margin-left: 250px; /* Same width as sidebar */
+            margin-top: 80px; /* Space for header */
+            flex-grow: 1; 
         }
         img { 
             max-width: 100%; 
             height: auto;
         }
         
-        /* Responsive adjustments */
+        /* Media queries for responsiveness */
         @media screen and (max-width: 768px) {
             .sidebar { 
-                transform: translateX(-250px); /* Hide sidebar by default on mobile */
+                width: 100%; 
+                position: static; 
+                display: block; /* Ensure sidebar is always visible on mobile */
             }
-            .sidebar.active { 
-                transform: translateX(0); /* Show sidebar when active */
-            }
-            .main { 
-                margin-left: 0; /* Main content takes full width on mobile */
-            }
-            body {
-                padding-top: 0; /* Header becomes static */
+            .main, .sidebar { 
+                margin-left: 0; 
+                padding: 20px; 
+                padding-top: 120px; /* More space for the header */
             }
             header { 
                 position: static;
+            }
+        }
+
+        /* Further adjustments for landscape mode on mobile devices */
+        @media screen and (max-height: 500px) {
+            .sidebar, .main {
+                padding-top: 70px; /* Adjust for smaller header */
             }
         }
     </style>
@@ -80,9 +84,8 @@
 <body>
     <header>
         <h1>游戏外活动</h1>
-        <div onclick="toggleSidebar()" style="cursor:pointer;">☰</div> <!-- Menu toggle for mobile -->
     </header>
-    <div class="sidebar" id="mySidebar">
+    <div class="sidebar">
         <a href="#activity1">群星的寓言 1.6</a>
         <a href="#activity2">不眠之夜 White Night 1.6</a>
         <a href="#activity3">盛会邀约 2.0</a>
