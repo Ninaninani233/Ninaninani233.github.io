@@ -22,12 +22,16 @@
         .sidebar a { color: white; padding: 10px; text-decoration: none; display: block; font-size: 16px; }
         .sidebar a:hover { background-color: #555; }
         .main { margin-left: 250px; padding: 20px; overflow-x: auto; }
-        .activity-section-header, .activity-header { font-weight: bold; color: white; }
+        .activity-section-header { font-weight: bold; color: #333; } /* Black color for subheaders */
+        .activity-header { color: white; font-weight: bold; margin-bottom: 20px; }
         .activity-section { margin-bottom: 20px; }
         table { width: 100%; border-collapse: collapse; }
         th, td { border: 1px solid #000; padding: 8px; text-align: left; }
         th { background-color: #555; color: white; }
         tr:nth-child(even) { background-color: #ddd; }
+        /* Added styles for white text in dark background for certain sections */
+        .dark-section { background-color: #333; color: white; padding: 10px; }
+        .dark-section p, .dark-section ul { color: white; }
     </style>
 </head>
 <body>
@@ -49,6 +53,8 @@
         </div>
         <div class="activity-section">
             <img src="images/22bczgcl0bxdldalmb9iqs9i87jsotq.png" alt="群星的预言活动图片">
+         </div>
+        <div class="activity-section">
             <div class="activity-section-header">活动时间</div>
             <p>2023/12/30 12:00~2024/01/05 12:00</p>
         </div>
@@ -102,37 +108,44 @@
                 </ul>
         </div>
         <div class="activity-section">
-        <div class="activity-section-header">活动奖励</div>
-        <p>80星琼（限量300万份，先到先得）（QQ音乐×酷狗音乐各40星琼）</p>
+            <div class="activity-section-header">活动奖励</div>
+            <p>80星琼（限量300万份，先到先得）（QQ音乐×酷狗音乐各40星琼）</p>
+        </div><!-- 闭合活动规则 -->
+    </div><!-- 闭合main -->
+    
 <div class="main">
-    <div class="activity" id="activity3">
-    <div class="activity-header">网页活动预热3- 「盛会邀约」2.0版本</div>
-    <div class="activity-section">
-        <div class="activity-section">
-    <div class="activity-section-header">活动图片</div>
-    <img src="images/600px-「盛会邀约」.jpeg" alt="images/600px-「盛会邀约」.png.jpeg">
-    <div class="activity-section-header">活动时间</div>
-    <p>2024/02/06 07:00~2024/03/27 06:00</p>
-    </div>
-    <div class="activity-section">
-    <div class="activity-section-header">活动说明</div>
-    <ul>
-      <li>活动期间开拓者可通过邀约回归开拓者来获得星琼奖励等好礼。</li>
-      <li>活跃开拓者可分享个人专属邀约码，邀约其他满足条件的开拓者回归，获得星琼奖励与抽奖机会。</li>
-      <li>回归开拓者登录游戏后，也可分享个人专属邀约码，邀约其他满足条件的开拓者回归，参与网页活动。</li>
-      <li>※回归开拓者的状态更新存在延迟，开拓者可以等待2分钟后刷新网页查看。</li>
-    </ul>
-    </div>
-    <div class="activity-section">
-    <div class="activity-section-header">回归开拓者</div>
-    <p>可参与活动「循星归程」的开拓者将被视为「回归开拓者」，「循星归程」参与条件如下：</p>
-    <ul>
-      <li>开拓等级≥10级；完成开拓任务「雅利洛-VI」-「她等待刀尖已经太久」；</li>
-      <li>连续未登录游戏天数≥14天；</li>
-      <li>距离上一次参与活动「循星归程」≥40天。</li>
-      <li>※回归开拓者状态持续时间，与活动「循星归程」开启时间保持一致。</li>
-    </ul>
+            <!-- 网页活动预热3- 「盛会邀约」2.0版本 -->
+            <div class="activity" id="activity3">
+                <div class="activity-header">网页活动预热3- 「盛会邀约」2.0版本</div>
+            </div>
+            <div class="activity-section">
+                <div class="activity-section-header">活动图片</div>
+                    <img src="images/600px-「盛会邀约」.jpeg" alt="images/600px-「盛会邀约」.png.jpeg">
+            <div class="activity-section-header">活动时间</div>
+            <p>2024/02/06 07:00~2024/03/27 06:00</p>
+            </div>
+            <div class="activity-section">
+            <div class="activity-section-header">活动说明</div>
+            <ul>
+              <li>活动期间开拓者可通过邀约回归开拓者来获得星琼奖励等好礼。</li>
+              <li>活跃开拓者可分享个人专属邀约码，邀约其他满足条件的开拓者回归，获得星琼奖励与抽奖机会。</li>
+              <li>回归开拓者登录游戏后，也可分享个人专属邀约码，邀约其他满足条件的开拓者回归，参与网页活动。</li>
+              <li>※回归开拓者的状态更新存在延迟，开拓者可以等待2分钟后刷新网页查看。</li>
+            </ul>
+            </div>
+            <div class="activity-section">
+            <div class="activity-section-header">回归开拓者</div>
+            <p>可参与活动「循星归程」的开拓者将被视为「回归开拓者」，「循星归程」参与条件如下：</p>
+            <ul>
+              <li>开拓等级≥10级；完成开拓任务「雅利洛-VI」-「她等待刀尖已经太久」；</li>
+              <li>连续未登录游戏天数≥14天；</li>
+              <li>距离上一次参与活动「循星归程」≥40天。</li>
+              <li>※回归开拓者状态持续时间，与活动「循星归程」开启时间保持一致。</li>
+            </ul>
     
     </div>
     
     </div>
+
+</body>
+</html>
