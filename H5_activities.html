@@ -10,7 +10,7 @@
             margin: 0; 
             padding: 0; 
             display: flex; 
-            flex-direction: column; /* Change to column for default */
+            flex-direction: column;
         }
         header { 
             background-color: #333; 
@@ -18,19 +18,21 @@
             text-align: center; 
             color: white; 
             width: 100%; 
-            z-index: 2; /* Ensure it's above other content */
+            position: fixed; 
+            top: 0; 
+            z-index: 2;
         }
         .sidebar { 
             background-color: #333; 
+            width: 250px; 
+            position: fixed; 
+            top: 60px; /* Adjusted to not be under the header */
+            bottom: 0; 
+            left: 0; 
+            overflow-x: hidden; 
             padding-top: 20px; 
             transition: 0.5s; 
-            width: 250px; /* Default width */
-            position: fixed; /* Fixed only for desktop */
-            height: 100vh; /* Full height */
-            overflow-x: hidden; /* Hide horizontal scroll */
-            left: 0; /* Stick to the left */
-            top: 60px; /* Adjusted to be below the header */
-            z-index: 1; /* Under the header */
+            z-index: 1;
         }
         .sidebar a { 
             color: white; 
@@ -38,36 +40,43 @@
             text-decoration: none; 
             font-size: 16px; 
             display: block; 
+            text-align: center; /* Center align links */
         }
         .sidebar a:hover { 
             background-color: #555; 
         }
         .main { 
-            flex-grow: 1; 
+            margin-left: 250px; 
             padding: 20px; 
-            padding-top: 80px; /* Make space for the header */
-            margin-left: 250px; /* Make space for the sidebar */
+            margin-top: 80px; /* Space for header */
+            flex-grow: 1; 
         }
         img { 
-            max-width: 100%; /* Responsive images */
+            max-width: 100%; 
             height: auto;
         }
-
-        /* Media queries */
+        
+        /* Media queries for responsiveness */
         @media screen and (max-width: 768px) {
             .sidebar { 
-                width: 100%; /* Full width on small screens */
-                position: static; /* Static makes it part of the flow */
-                height: auto; /* Adjust height */
-                top: 0; /* Reset top */
-                display: block; /* Always show sidebar on small screens */
+                width: 100%; 
+                position: static; 
+                display: block; /* Ensure sidebar is always visible on mobile */
             }
-            .main { 
-                margin-left: 0; /* Reset margin */
-                padding-top: 20px; /* Adjust padding */
+            .main, .sidebar { 
+                margin-left: 0; 
+                padding: 20px; 
+                padding-top: 120px; /* More space for the header */
             }
-            header {
-                position: static; /* On small screens, make header static */
+            header { 
+                position: static;
+            }
+        }
+
+        /* Further adjustments for landscape mode on mobile devices */
+        @media screen and (max-height: 500px) {
+            .sidebar, .main {
+                padding-top: 70px; /* Adjust for smaller header */
             }
         }
     </style>
@@ -81,7 +90,7 @@
         <a href="#activity2">不眠之夜 White Night 1.6</a>
         <a href="#activity3">盛会邀约 2.0</a>
     </div>
-
+   
   
 <div class="main">
         <!-- 网页活动预热1-「群星的寓言」1.6版本 -->
