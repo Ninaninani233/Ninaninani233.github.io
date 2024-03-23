@@ -68,6 +68,36 @@
         .sidebar .content a:hover {
             background-color: #ddd;
         }
+         .sidebar a {
+            color: white; 
+            padding: 18px; 
+            text-decoration: none; 
+            font-size: 18px; 
+            display: block; 
+            text-align: center; /* Center align links */
+            background-color: #777; /* Default background */
+            transition: 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #555; /* Hover effect */
+        }
+        .sidebar a.return {
+            background-color: #333; /* Return button color */
+        }
+        .sidebar a.return:hover {
+            background-color: #555; /* Hover effect for return button */
+        }
+        .sidebar .content a {
+            background-color: transparent; /* Remove background from content links */
+            color: #ddd; /* Content links color */
+            padding: 10px;
+            font-size: 16px;
+        }
+        .sidebar .content a:hover {
+            background-color: #333; /* Hover effect for content links */
+            color: white; /* Text color change for hover effect */
+        }
+
         .main {
             margin-left: 250px; /* Same as the width of the sidebar */
             padding: 20px;
