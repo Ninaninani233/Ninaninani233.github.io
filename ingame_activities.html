@@ -106,6 +106,36 @@
                 padding-top: 70px; /* Adjust for smaller header */
             }
         }
+         .sidebar a.return {
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 16px;
+            display: block;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .sidebar a.return:hover {
+            background-color: #555;
+        }
+
+        /* 将移动设备的默认折叠样式设为不显示 */
+        @media screen and (max-width: 768px) {
+            .sidebar .content {
+                display: none;
+            }
+            .sidebar .collapsible:after {
+                content: '\002B'; /* 加号 */
+                font-size: 20px;
+                color: white;
+                float: right;
+                margin-left: 5px;
+            }
+            .sidebar .active:after {
+                content: "\2212"; /* 减号 */
+            }
+        }
     </style>
 </head>
 <body>
@@ -137,6 +167,30 @@
   </div>
 </div>
 <!-- 侧边栏内容 -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var coll = document.getElementsByClassName("collapsible");
+            for (var i = 0; i < coll.length; i++) {
+                coll[i].addEventListener("click", function() {
+                    var currentlyActiveCollapsible = document.querySelector(".collapsible.active");
+                    if(currentlyActiveCollapsible && currentlyActiveCollapsible !== this) {
+                        currentlyActiveCollapsible.classList.toggle("active");
+                        var content = currentlyActiveCollapsible.nextElementSibling;
+                        if (content.style.maxHeight) {
+                            content.style.maxHeight = null;
+                        }
+                    }
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    } 
+                });
+            }
+        });
+    </script>
     
 <div class="main">
         <!-- 探索活动《逐梦客时讯》2.0版本 （常规） -->
