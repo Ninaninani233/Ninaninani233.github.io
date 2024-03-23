@@ -32,7 +32,7 @@
             left: 0; 
             overflow-x: hidden; 
             transition: 0.5s; 
-            padding-top: 20px; 
+            padding-top: 50px; 
             z-index: 2;
         }
         .sidebar .collapsible {
@@ -161,17 +161,19 @@
         }
 
          /* Media queries for responsiveness */
-         @media screen and (max-width: 768px) {
-             header {
-                position: static; /* Change position to relative for mobile view */
-                width: 100%;
+        @media screen and (max-width: 768px) {
+            .sidebar { 
+                width: 100%; 
+                position: static; 
+                display: block; /* Ensure sidebar is always visible on mobile */
             }
-           .main { 
+            .main, .sidebar { 
                 margin-left: 0; 
-                margin-top: 60px; /* Increase top margin on mobile */
+                padding: 20px; 
+                padding-top: 120px; /* More space for the header */
             }
-            .sidebar, .main {
-                padding-top: 20px; /* Reduced padding-top for mobile */
+            header { 
+                position: static;
             }
         }
 
@@ -181,6 +183,7 @@
                 padding-top: 70px; /* Adjust for smaller header */
             }
         }
+        
         
     </style>
 </head>
