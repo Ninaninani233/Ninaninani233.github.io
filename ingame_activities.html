@@ -25,10 +25,10 @@
         .sidebar {
             width: 250px;
             position: fixed;
-            top: 90px; /* Adjusted to not be under the header */
+            top: 60px; /* Adjusted to not be under the header */
             bottom: 0; 
             left: 0; 
-            z-index: 1;
+            z-index: 2;
             top: 0;
             left: 0;
             background-color: #333;
@@ -68,10 +68,11 @@
         .sidebar .content a:hover {
             background-color: #ddd;
         }
-        .main {
-            margin-left: 250px; /* Same as the width of the sidebar */
-            padding: 20px;
-            overflow-x: auto;
+    .main { 
+            margin-left: 250px; 
+            padding: 20px; 
+            margin-top: 60px; /* Add a top margin to avoid header overlap */
+            flex-grow: 1; 
         }
         table {
             width: 100%;
@@ -150,7 +151,7 @@
             .main, .sidebar { 
                 margin-left: 0; 
                 padding: 20px; 
-                padding-top: 120px; /* More space for the header */
+                padding-top: 80px; /* More space for the header */
             }
             header { 
                 position: static;
