@@ -219,25 +219,27 @@
         }
 
         /* Further adjustments for landscape mode on mobile devices */
-        @media screen and (max-height: 500px) {
-            .sidebar {
-                padding-top: 120px; /* Increase this value to clear the header */
-                position: static; 
-                display: block; /* Ensure sidebar is always visible on mobile */
-            }
-            .main {
-                padding-top: 120px; /* Keep consistent with sidebar if necessary */
-            }
-            .sidebar a:not(.return) {
-                color: #333 !important; /* Force text color for mobile */
-    }
-            .sidebar a.return {
-                color: white !important; /* Force 'return' link text color for mobile */
-    }
+       @media screen and (max-height: 500px) {
+        .sidebar {
+            padding-top: 120px; /* Provide enough space for the header */
+            position: fixed; /* Fixed position to keep the sidebar in view */
+            height: calc(100% - 120px); /* Full height minus the header space */
+            overflow-y: auto; /* Allows scrolling within the sidebar */
         }
+        .main {
+            margin-top: 120px; /* Ensure the main content starts below the header */
+            margin-left: 250px; /* Adjust margin to account for the sidebar */
+            padding: 20px;
+        }
+        .sidebar a:not(.return) {
+            color: #333 !important; /* Force text color for mobile */
+        }
+        .sidebar a.return {
+            color: white !important; /* Force 'return' link text color for mobile */
+        }
+    }
+        
 
-        
-        
     </style>
 </head>
 <body>
