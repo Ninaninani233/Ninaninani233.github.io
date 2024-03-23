@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>游戏外活动</title>
     <style>
+       <style>
         body { 
             font-family: Arial, sans-serif; 
             margin: 0; 
@@ -12,29 +13,27 @@
             display: flex; 
             flex-direction: column;
         }
-         header { 
+        header { 
             background-color: #333; 
-            padding: 8 px; 
+            padding: 8px; 
             text-align: center; 
             color: white; 
             width: 100%; 
             position: fixed; 
             top: 0; 
-            z-index: 2;
+            z-index: 1000; /* high z-index to ensure header stays on top */
         }
-        .sidebar {
-            width: 250px;
-            position: fixed;
+        .sidebar { 
+            background-color: #333; 
+            width: 250px; 
+            position: fixed; 
             top: 60px; /* Adjusted to not be under the header */
             bottom: 0; 
             left: 0; 
-            z-index: 2;
-            top: 0;
-            left: 0;
-            background-color: #333;
-            overflow-x: hidden;
+            overflow-x: hidden; 
             transition: 0.5s; 
-            padding-top: 20px;
+            padding-top: 20px; 
+            z-index: 2;
         }
         .sidebar .collapsible {
             background-color: #777;
@@ -140,24 +139,46 @@
             background-color: #333; /* Hover effect for content links */
             color: white; /* Text color change for hover effect */
         }
+        .main { 
+            margin-left: 250px; 
+            padding: 20px; 
+            margin-top: 60px; /* Add a top margin to avoid header overlap */
+            flex-grow: 1; 
+        }
+        .collapsible {
+            background-color: #777;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            font-size: 18px;
+        }
+        .collapsible:hover {
+            background-color: #555;
+        }
 
          /* Media queries for responsiveness */
         @media screen and (max-width: 768px) {
+            header {
+                position: relative; /* Change position to relative for mobile view */
+                width: 100%;
+            }
             .sidebar { 
-                width: 100%; 
-                position: static; 
-                display: block; /* Ensure sidebar is always visible on mobile */
+                position: relative; /* Change position to relative for mobile view */
+                width: 100%;
+                margin-top: 60px; /* Add margin-top to push it below the header */
             }
-            .main, .sidebar { 
+            .main { 
                 margin-left: 0; 
-                padding: 20px; 
-                padding-top: 80px; /* More space for the header */
+                margin-top: 80px; /* Increase top margin on mobile */
             }
-            header { 
-                position: static;
+            .sidebar, .main {
+                padding-top: 20px; /* Reduced padding-top for mobile */
             }
         }
-
         /* Further adjustments for landscape mode on mobile devices */
         @media screen and (max-height: 500px) {
             .sidebar, .main {
