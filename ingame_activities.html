@@ -65,7 +65,7 @@
             font-size: 16px;
         }
        .sidebar a {
-            color: black; /* 默认黑色文字 */
+            color: #333; /* 默认黑色文字 */
             padding: 18px;
             text-decoration: none;
             font-size: 18px;
@@ -85,14 +85,12 @@
             width: 100%; /* 使背景颜色填满整个侧边栏宽度 */
             box-sizing: border-box; /* 确保内边距不会影响到背景颜色的宽度 */
         }
-        .sidebar a {
-            color: #333 !important; /* 强制文字为黑色 */
-            /* 其他样式保持不变 */
-        }
+    
         .sidebar a.return {
             color: white; /* Ensures text is white */
             background-color: #333; /* Return button color */
         }/* 单独改返回颜色*/
+        
         .main { 
             margin-left: 250px; 
             padding: 20px; 
@@ -199,7 +197,8 @@
 
         /* Further adjustments for landscape mode on mobile devices */
         @media screen and (max-height: 500px) {
-            .sidebar, .main {
+            .sidebar, 
+            .main {
                 padding-top: 70px; /* Adjust for smaller header */
             }
         }
