@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
@@ -15,13 +14,13 @@
         }
         header { 
             background-color: #333; 
-            padding: 8px; 
+            padding: 20px 0; 
             text-align: center; 
             color: white; 
             width: 100%; 
             position: fixed; 
             top: 0; 
-            z-index: 1000; /* high z-index to ensure header stays on top */
+            z-index: 2;
         }
         .sidebar { 
             background-color: #333; 
@@ -31,176 +30,77 @@
             bottom: 0; 
             left: 0; 
             overflow-x: hidden; 
-            transition: 0.5s; 
             padding-top: 20px; 
-            z-index: 2;
+            transition: 0.5s; 
+            z-index: 1;
         }
-        .sidebar .collapsible {
-            background-color: #777;
-            color: white;
-            cursor: pointer;
-            padding: 18px;
-            width: 100%;
-            text-align: left;
-            border: none;
-            outline: none;
-            font-size: 18px;
-            text-align: center; /* Center align text */
-        }
-        .sidebar .collapsible:hover, .sidebar .collapsible.active {
-            background-color: #555;
-        }
-        .sidebar .content {
-            padding: 0 18px;
-            display: none;
-            overflow: hidden;
-            background-color: #f1f1f1;
-            transition: max-height 0.2s ease-out;
-        }
-        .sidebar .content a {
-            color: #333;
-            padding: 10px;
-            text-decoration: none;
-            display: block;
-            font-size: 16px;
-        }
-        .sidebar .content a:hover {
-            background-color: #ddd;
-        }
-         .sidebar a {
-            color: white; 
-            padding: 18px; 
+        .sidebar a, .sidebar .collapsible { 
+            padding: 10px 15px; 
             text-decoration: none; 
             font-size: 18px; 
+            color: black; /* text color */
             display: block; 
-            text-align: center; /* Center align links */
-            background-color: #777; /* Default background */
             transition: 0.3s;
         }
-        .sidebar a:hover {
-            background-color: #555; /* Hover effect */
+        .sidebar a:hover, .sidebar .collapsible:hover {
+            color: white; /* text color on hover */
+            background-color: #555; /* background color on hover */
         }
-        .sidebar a.return {
-            background-color: #333; /* Return button color */
+        .sidebar .collapsible {
+            background-color: #333; /* background color */
+            color: white; /* text color */
+            cursor: pointer; 
+            border: none; 
+            text-align: left; 
+            outline: none; 
+            width: 100%; /* full width */
         }
-        .sidebar a.return:hover {
-            background-color: #555; /* Hover effect for return button */
-        }
-        .sidebar .content a {
-            background-color: transparent; /* Remove background from content links */
-            color: #ddd; /* Content links color */
-            padding: 10px;
-            font-size: 16px;
-        }
-        .sidebar .content a:hover {
-            background-color: #333; /* Hover effect for content links */
-            color: white; /* Text color change for hover effect */
-        }
-
-        .main { 
-            margin-left: 250px; 
-            padding: 20px; 
-            margin-top: 60px; /* Add a top margin to avoid header overlap */
-            flex-grow: 1; 
-        }
-        .collapsible {
-            background-color: #777;
-            color: white;
-            cursor: pointer;
-            padding: 18px;
-            width: 100%;
-            text-align: left;
-            border: none;
-            outline: none;
-            font-size: 18px;
-        }
-        .collapsible:hover {
+        .sidebar .active, .sidebar .collapsible:hover .sidebar .content a:hover {
             background-color: #555;
+            color: white; /* White text color on active/hover */
+            width: 100%; /* full width on active/hover */
         }
-        /* ... 更多样式代码 ... */
-        @media screen and (max-width: 768px) {
-            header {
-                position: relative; /* Change position to relative for mobile view */
-                width: 100%;
-            }
-            .sidebar { 
-                position: relative; /* Change position to relative for mobile view */
-                width: 100%;
-                margin-top: 60px; /* Add margin-top to push it below the header */
-            }
-            .main { 
-                margin-left: 0; 
-                margin-top: 80px; /* Increase top margin on mobile */
-            }
-            .sidebar, .main {
-                padding-top: 20px; /* Reduced padding-top for mobile */
-            }
+        .sidebar .content { 
+            display: none; /* hide content */
+            background-color: #f1f1f1; 
+            overflow: hidden; 
+            transition: max-height 0.2s ease-out;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
+        .main { 
+            margin-left: 250px; /* Same as the width of the sidebar */
+            padding: 20px;
+            margin-top: 80px; /* Adjusted to not be under the header */
+            overflow-x: auto;
         }
         img { 
             max-width: 100%; 
             height: auto;
         }
-        th, td {
-            border: 1px solid #000;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #555;
-            color: white;
-        }
-        tr:nth-child(even) {
-            background-color: #ddd;
-        }
-        .activity-table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-            margin-top: 20px;
-        }
-        .activity-table th, .activity-table td {
-            border: 1px solid #000;
-            padding: 8px;
-        }
-        .activity-table th {
-            background-color: #000;
-            color: #fff;
-        }
-        .activity-table tr:nth-child(even) {
-            background-color: #ddd;
-        }
-         /* Media queries for responsiveness */
         @media screen and (max-width: 768px) {
             .sidebar { 
                 width: 100%; 
-                position: static; 
-                display: block; /* Ensure sidebar is always visible on mobile */
+                height: auto; 
+                position: relative;
+            }
+            .sidebar .collapsible { 
+                text-align: left;
+            }
+            .sidebar .content a, .sidebar .collapsible { 
+                text-align: left;
             }
             .main, .sidebar { 
                 margin-left: 0; 
-                padding: 20px; 
-                padding-top: 120px; /* More space for the header */
+                padding: 0;
             }
             header { 
-                position: static;
-            }
-        }
-
-        /* Further adjustments for landscape mode on mobile devices */
-        @media screen and (max-height: 500px) {
-            .sidebar, .main {
-                padding-top: 70px; /* Adjust for smaller header */
+                position: relative;
             }
         }
     </style>
 </head>
 <body>
-      <header>
-        <h1>游戏外活动</h1>
+    <header>
+        <h1>游戏内活动</h1>
     </header>
     <!-- 头部内容 -->
 
