@@ -27,12 +27,12 @@
             background-color: #333; 
             width: 250px; 
             position: fixed; 
-            top: 30px; /* Adjusted to not be under the header */
+            top: 0px; /* Adjusted to not be under the header */
             bottom: 0; 
             left: 0; 
             overflow-x: hidden; 
             transition: 0.5s; 
-            padding-top: 60px; 
+            padding-top: 150px; 
             z-index: 2;
         }
         .sidebar .collapsible {
@@ -64,7 +64,16 @@
             display: block;
             font-size: 16px;
         }
-        
+        .sidebar a {
+            color: black; /* 链接字体颜色改为黑色 */
+            padding: 18px; 
+            text-decoration: none; 
+            font-size: 18px; 
+            display: block; 
+            text-align: center; /* 文字居中对齐 */
+            background-color: #777; /* 默认背景颜色 */
+            transition: 0.3s;
+        }
         .sidebar .content a:hover {
             background-color: #ddd;
         }
