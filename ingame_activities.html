@@ -210,6 +210,12 @@
             header { 
                 position: static;
             }
+            .sidebar a:not(.return) {
+                color: #333 !important; /* Force text color for mobile */
+    }
+            .sidebar a.return {
+                color: white !important; /* Force 'return' link text color for mobile */
+    }
         }
 
         /* Further adjustments for landscape mode on mobile devices */
@@ -222,6 +228,12 @@
             .main {
                 padding-top: 120px; /* Keep consistent with sidebar if necessary */
             }
+            .sidebar a:not(.return) {
+                color: #333 !important; /* Force text color for mobile */
+    }
+            .sidebar a.return {
+                color: white !important; /* Force 'return' link text color for mobile */
+    }
         }
 
         
