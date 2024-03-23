@@ -3,107 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>游戏内活动</title>
+    <title>游戏外活动</title>
     <style>
         body { 
             font-family: Arial, sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            display: flex; 
-            flex-direction: column;
-        }
-        header { 
-            background-color: #333; 
-            padding: 20px 0; 
-            text-align: center; 
-            color: white; 
+	@@ -20,21 +21,19 @@
             width: 100%; 
             position: fixed; 
             top: 0; 
             z-index: 2;
         }
         .sidebar { 
-            background-color: #333; 
             width: 250px; 
             position: fixed; 
-            top: 60px; /* Adjusted to not be under the header */
+            top: 90px; /* Adjusted to not be under the header */
             bottom: 0; 
             left: 0; 
-            overflow-x: hidden; 
-            padding-top: 20px; 
-            transition: 0.5s; 
             z-index: 1;
-        }
-        .sidebar a, .sidebar .collapsible { 
-            padding: 10px 15px; 
-            text-decoration: none; 
-            font-size: 18px; 
-            color: black; /* text color */
-            display: block; 
-            transition: 0.3s;
-        }
-        .sidebar a:hover, .sidebar .collapsible:hover {
-            color: white; /* text color on hover */
-            background-color: #555; /* background color on hover */
+            top: 0;
+            left: 0;
+            background-color: #333;
+            overflow-x: hidden; 
+            transition: 0.5s; 
+            padding-top: 20px; 
         }
         .sidebar .collapsible {
-            background-color: #333; /* background color */
-            color: white; /* text color */
-            cursor: pointer; 
-            border: none; 
-            text-align: left; 
-            outline: none; 
-            width: 100%; /* full width */
+            background-color: #777;
+	@@ -99,9 +98,43 @@
         }
-        .sidebar .active, .sidebar .collapsible:hover .sidebar .content a:hover {
-            background-color: #555;
-            color: white; /* White text color on active/hover */
-            width: 100%; /* full width on active/hover */
-        }
-        .sidebar .content { 
-            display: none; /* hide content */
-            background-color: #f1f1f1; 
-            overflow: hidden; 
-            transition: max-height 0.2s ease-out;
-        }
+
         .main { 
             margin-left: 250px; /* Same as the width of the sidebar */
-            padding: 20px;
-            margin-top: 80px; /* Adjusted to not be under the header */
+            padding: 20px; 
             overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
         }
         img { 
             max-width: 100%; 
             height: auto;
         }
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #555;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #ddd;
+        }
+        .activity-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            margin-top: 20px;
+        }
+        .activity-table th, .activity-table td {
+            border: 1px solid #000;
+            padding: 8px;
+        }
+        .activity-table th {
+            background-color: #000;
+            color: #fff;
+        }
+        .activity-table tr:nth-child(even) {
+            background-color: #ddd;
+        }
+         /* Media queries for responsiveness */
         @media screen and (max-width: 768px) {
             .sidebar { 
                 width: 100%; 
-                height: auto; 
-                position: relative;
-            }
-            .sidebar .collapsible { 
-                text-align: left;
-            }
-            .sidebar .content a, .sidebar .collapsible { 
-                text-align: left;
+                position: static; 
+                display: block; /* Ensure sidebar is always visible on mobile */
             }
             .main, .sidebar { 
                 margin-left: 0; 
-                padding: 0;
+                padding: 20px; 
+                padding-top: 120px; /* More space for the header */
             }
             header { 
-                position: relative;
+                position: static;
+            }
+        }
+        /* Further adjustments for landscape mode on mobile devices */
+        @media screen and (max-height: 500px) {
+            .sidebar, .main {
+                padding-top: 70px; /* Adjust for smaller header */
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>游戏内活动</h1>
+      <header>
+        <h1>游戏外活动</h1>
     </header>
     <!-- 头部内容 -->
-
 <div class="sidebar">
   <button type="button" class="collapsible">内容玩法向</button>
   <div class="content">
