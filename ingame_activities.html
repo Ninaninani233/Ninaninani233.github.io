@@ -96,6 +96,17 @@
             background-color: #555; /* Background color for hover state */
             /* ... other styles ... */
         }
+        /* Target all anchor tags within the sidebar that are not the 'return' class */
+        .sidebar a:not(.return) {
+            color: #333 !important; /* Force text color to #333 for all links except 'return' */
+            /* ... other styles ... */
+        }
+
+        /* Specific style for the 'return' class link to maintain the white color */
+        .sidebar a.return {
+            color: white !important; /* Ensure 'return' link text is always white */
+            /* ... other styles ... */
+        }
         
         .main { 
             margin-left: 250px; 
