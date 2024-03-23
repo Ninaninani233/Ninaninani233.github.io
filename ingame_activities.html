@@ -197,11 +197,14 @@
 
         /* Further adjustments for landscape mode on mobile devices */
         @media screen and (max-height: 500px) {
-            .sidebar, 
+            .sidebar {
+                padding-top: 120px; /* Increase this value to clear the header */
+            }
             .main {
-                padding-top: 70px; /* Adjust for smaller header */
+                padding-top: 120px; /* Keep consistent with sidebar if necessary */
             }
         }
+
         
         
     </style>
