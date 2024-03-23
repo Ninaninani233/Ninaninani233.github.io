@@ -64,19 +64,27 @@
             display: block;
             font-size: 16px;
         }
-        .sidebar a {
-            color: black; /* 链接字体颜色改为黑色 */
-            padding: 18px; 
-            text-decoration: none; 
-            font-size: 18px; 
-            display: block; 
-            text-align: center; /* 文字居中对齐 */
-            background-color: #777; /* 默认背景颜色 */
-            transition: 0.3s;
-        }
-        .sidebar .content a:hover {
-            background-color: #ddd;
-        }
+       .sidebar a {
+    color: black; /* 默认黑色文字 */
+    padding: 18px;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    text-align: center; /* 文字居中对齐 */
+    background-color: #777; /* 默认背景颜色 */
+    transition: 0.3s;
+}
+
+/* 侧边栏链接内容在悬停时的状态 */
+.sidebar .content a:hover {
+    color: white; /* 悬停时的文字颜色为白色 */
+    background-color: #555; /* 悬停时的背景颜色 */
+    padding: 10px;
+    font-size: 16px;
+    display: block; /* 确保背景颜色填满整个侧边栏宽度 */
+    width: 100%; /* 使背景颜色填满整个侧边栏宽度 */
+    box-sizing: border-box; /* 确保内边距不会影响到背景颜色的宽度 */
+}
         .main { 
             margin-left: 250px; 
             padding: 20px; 
