@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>游戏内活动</title>
+    <title>游戏外活动</title>
     <style>
         body { 
             font-family: Arial, sans-serif; 
@@ -12,9 +12,9 @@
             display: flex; 
             flex-direction: column;
         }
-        header { 
+         header { 
             background-color: #333; 
-            padding: 10px; 
+            padding: 8 px; 
             text-align: center; 
             color: white; 
             width: 100%; 
@@ -22,127 +22,121 @@
             top: 0; 
             z-index: 2;
         }
-        .sidebar { 
-            background-color: #333; 
-            width: 250px; 
-            position: fixed; 
+        .sidebar {
+            width: 250px;
+            position: fixed;
             top: 90px; /* Adjusted to not be under the header */
             bottom: 0; 
             left: 0; 
-            overflow-x: hidden; 
-            padding-top: 30px; 
-            transition: 0.5s; 
             z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #333;
+            overflow-x: hidden;
+            transition: 0.5s; 
+            padding-top: 20px;
         }
-        .sidebar .collapsible { 
-            color: white; 
-            cursor: pointer; 
-            padding: 18px; 
-            text-align: left; 
-            outline: none; 
-            font-size: 18px; 
-            border: none; 
+        .sidebar .collapsible {
+            background-color: #777;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
             width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            font-size: 18px;
             text-align: center; /* Center align text */
         }
-        .sidebar .collapsible:hover, .sidebar .collapsible.active { 
-            background-color: #555; 
+        .sidebar .collapsible:hover, .sidebar .collapsible.active {
+            background-color: #555;
         }
-        .sidebar .content a { 
-            color: white; 
-            padding: 10px; 
-            text-decoration: none; 
-            display: block; 
-            text-align: center; /* Center align text */
+        .sidebar .content {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: #f1f1f1;
+            transition: max-height 0.2s ease-out;
         }
-        .sidebar .content a:hover { 
-            background-color: #777; 
+        .sidebar .content a {
+            color: #333;
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+            font-size: 16px;
         }
-        .main { 
+        .sidebar .content a:hover {
+            background-color: #ddd;
+        }
+        .main {
             margin-left: 250px; /* Same as the width of the sidebar */
-            padding: 20px; 
-            margin-top: 80px; /* Space for header */
-            overflow-x: auto; 
+            padding: 20px;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
         }
         img { 
             max-width: 100%; 
             height: auto;
         }
-        table { 
-            width: 100%; 
-            border-collapse: collapse; 
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
         }
-        th, td { 
-            border: 1px solid #000; 
-            padding: 8px; 
-            text-align: left; 
+        th {
+            background-color: #555;
+            color: white;
         }
-        th { 
-            background-color: #555; 
-            color: white; 
+        tr:nth-child(even) {
+            background-color: #ddd;
         }
-        tr:nth-child(even) { 
-            background-color: #ddd; 
+        .activity-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            margin-top: 20px;
         }
-        
-        /* Mobile adjustments */
+        .activity-table th, .activity-table td {
+            border: 1px solid #000;
+            padding: 8px;
+        }
+        .activity-table th {
+            background-color: #000;
+            color: #fff;
+        }
+        .activity-table tr:nth-child(even) {
+            background-color: #ddd;
+        }
+         /* Media queries for responsiveness */
         @media screen and (max-width: 768px) {
-            .sidebar .content {
-                display: none; /* Ensure content is not displayed by default on mobile */
-                padding: 0 18px; /* Keep padding when expanded */
+            .sidebar { 
+                width: 100%; 
+                position: static; 
+                display: block; /* Ensure sidebar is always visible on mobile */
             }
-            .sidebar .collapsible {
-                width: 100%; /* Full width */
-                text-align: center; /* Center text */
+            .main, .sidebar { 
+                margin-left: 0; 
+                padding: 20px; 
+                padding-top: 120px; /* More space for the header */
             }
-            .main {
-                padding-top: 60px; /* Adjust top padding */
+            header { 
+                position: static;
             }
         }
-        
+
         /* Further adjustments for landscape mode on mobile devices */
         @media screen and (max-height: 500px) {
             .sidebar, .main {
                 padding-top: 70px; /* Adjust for smaller header */
             }
         }
-         .sidebar a.return {
-            color: white;
-            padding: 10px 15px;
-            text-decoration: none;
-            font-size: 16px;
-            display: block;
-            text-align: center;
-            transition: 0.3s;
-        }
-
-        .sidebar a.return:hover {
-            background-color: #555;
-        }
-
-        /* 将移动设备的默认折叠样式设为不显示 */
-        @media screen and (max-width: 768px) {
-            .sidebar .content {
-                display: none;
-            }
-            .sidebar .collapsible:after {
-                content: '\002B'; /* 加号 */
-                font-size: 20px;
-                color: white;
-                float: right;
-                margin-left: 5px;
-            }
-            .sidebar .active:after {
-                content: "\2212"; /* 减号 */
-            }
-        }
     </style>
 </head>
 <body>
     <!-- 头部内容 -->
-  <header>
-        <h1>游戏内活动</h1>
-    </header>
 
 <div class="sidebar">
   <button type="button" class="collapsible">内容玩法向</button>
@@ -163,34 +157,8 @@
     <a href="#tourOfStars">巡星之礼</a>
     <a href="#dontClick">千万别点开！！</a>
   </div>
-    <a href="HSR_2.0_activity.html" class="return">返回主页</a> <!-- Return home button -->
-  </div>
 </div>
 <!-- 侧边栏内容 -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var coll = document.getElementsByClassName("collapsible");
-            for (var i = 0; i < coll.length; i++) {
-                coll[i].addEventListener("click", function() {
-                    var currentlyActiveCollapsible = document.querySelector(".collapsible.active");
-                    if(currentlyActiveCollapsible && currentlyActiveCollapsible !== this) {
-                        currentlyActiveCollapsible.classList.toggle("active");
-                        var content = currentlyActiveCollapsible.nextElementSibling;
-                        if (content.style.maxHeight) {
-                            content.style.maxHeight = null;
-                        }
-                    }
-                    this.classList.toggle("active");
-                    var content = this.nextElementSibling;
-                    if (content.style.maxHeight) {
-                        content.style.maxHeight = null;
-                    } else {
-                        content.style.maxHeight = content.scrollHeight + "px";
-                    } 
-                });
-            }
-        });
-    </script>
     
 <div class="main">
         <!-- 探索活动《逐梦客时讯》2.0版本 （常规） -->
@@ -915,4 +883,3 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
-
